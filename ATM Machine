@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+class atm{
+    int cash_amount;
+public:
+    void input(int cash_amount){
+        this->cash_amount=cash_amount;
+    }
+    int withdraw(int amount){
+        if(amount>cash_amount){
+            return(0);
+        }else{
+            cash_amount-=amount;
+            return(1);
+        }
+    }
+};
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+	    int cash_amount,people;
+	    cin>>people>>cash_amount;
+	    atm a;
+	    a.input(cash_amount);
+	    int arr[people];
+	    for(int i=0;i<people;i++){
+	        cin>>arr[i];
+	        int ans=a.withdraw(arr[i]);
+	        cout<<ans<<"";
+	    }
+	    cout<<endl;
+	}
+}
